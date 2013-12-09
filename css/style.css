@@ -88,7 +88,8 @@
   .btn.dropdown {
     background-color: #444443;
     overflow: visible;
-    left: -1px; }
+    left: -1px;
+    padding: 8px 8px 8px 4px; }
     .btn.dropdown [class^="icon-"], .btn.dropdown [class*=" icon-"] {
       margin-right: 0;
       font-size: 14px; }
