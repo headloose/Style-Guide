@@ -1,0 +1,240 @@
+/************BUTTONS*************/
+$borderRadius: 4px;
+
+
+
+@mixin buttonTrans {
+	-webkit-transition: all 0.18s ease-in-out;
+	-ms-transition: all 0.18s ease-in-out;
+	-moz-transition: all 0.18s ease-in-out;
+	-o-transition: all 0.18s ease-in-out;
+	transition: all 0.18s ease-in-out;
+}
+
+
+.spinner {
+  	left: -65px;
+  	width: 0;
+  	@include buttonTrans;
+  	display: inline-block;
+  	height: 15px;
+  	position: relative;
+  	top: -4px;
+  	&:after {
+  		content: "";
+  		position: absolute;
+  		width: 30px;
+  		height: 50px;
+  		background: $darkerGrey;
+  		top: -10px;
+  		left: 0px;
+  	}
+  	&:before {
+  		content: "";
+  		position: absolute;
+  		width: 0px;
+  		height: 0px;
+  		border-color: transparent transparent transparent $darkerGrey;
+  		border-style: solid;
+  		border-width: 39px 0px 0px 23px;
+  		top: -10px;
+  		left: 28px;
+  	}
+  }
+
+
+
+.btn {
+  border:none;
+  border-radius:$borderRadius;
+  @include buttonTrans;
+  
+  [class^="icon-"], [class*=" icon-"] {
+  	display: inline-block;
+  	margin-right: 5px;
+  	position: relative;
+  	top: 1px;
+  }
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  padding: 8px 12px;
+  position: relative;
+  overflow: hidden;
+  background-color: $grey;
+  color: #FFF;
+  line-height: 1;
+  box-shadow: inset rgba(0,0,0,0.2) 0 -2px 0,inset rgba(255,255,255,0.4) 0 1px 0;
+  display: inline-block;
+  &:hover, &:focus {
+  	box-shadow: inset rgba(0,0,0,0.2) 0 0px 0,inset rgba(0,0,0,0.2) 0 1px 0;
+  	background-color: $darkGrey;
+  }
+  
+  &:disabled {
+  	opacity: 0.2;
+  	box-shadow:none;
+  }
+  
+  &.large {
+  	font-weight: bold;
+  	font-size: 16px;
+  	[class^="icon-"], [class*=" icon-"] {
+  		font-size: 15px;
+  		
+  	}
+  }
+  
+  &.medium {
+    font-size:14px;
+    padding: 6px 10px;
+    [class^="icon-"], [class*=" icon-"] {
+    	font-size: 13px;
+    	
+    }
+  }
+  
+  &.small {
+    font-size:12px;
+    padding: 4px 8px;
+    border-radius:$borderRadius - 1;
+    [class^="icon-"], [class*=" icon-"] {
+    	font-size: 11px;
+    	
+    }
+  }
+  
+  &.primary {
+  	background-color: $blue;
+  	&:hover, &:focus {
+  		background-color: $darkBlue;
+  	}
+  }
+  
+  &.destruct {
+  	background-color: $red;
+  	&:hover, &:focus {
+  		background-color: $darkRed;
+  	}
+  }
+  
+  &.dropdown {
+  	background-color: $darkGrey;
+  	overflow: visible;
+  	left: -1px;
+  	[class^="icon-"], [class*=" icon-"] {
+  		margin-right: 0;
+  		font-size: 14px;
+  	}
+  	&:hover, &:focus {
+  		background-color: $darkerGrey;
+  		&:before {
+  			border-color: transparent transparent $darkerGrey transparent;
+  		}
+  	}
+  	&:before {
+  		@include buttonTrans;
+  		content: "";
+  		position: absolute;
+  		left: -19px;
+  		width: 0px;
+  		height: 0px;
+  		border-color: transparent transparent $darkGrey transparent;
+  		border-style:solid;
+  		border-width:0px 0px 35px 19px;
+  		background: transparent;
+  		top: 0px;
+  	}
+  	
+  	&.medium {
+  	  padding: 6px 8px 6px 4px;
+  	  &:before {
+  	  	border-width:0px 0px 28px 16px;
+  	  	left: -16px;
+  	  }
+  	  [class^="icon-"], [class*=" icon-"] {
+  	  	margin-right: 0;
+  	  	font-size: 12px;
+  	  }
+  	}
+  	
+  	&.small {
+  	  padding: 4px 6px 4px 2px;
+  	  &:before {
+  	  	border-width:0px 0px 20px 13px;
+  	  	left: -13px;
+  	  }
+  	  [class^="icon-"], [class*=" icon-"] {
+  	  	margin-right: 0;
+  	  	font-size: 10px;
+  	  }
+  	}
+  }
+  &.loading {
+  		.spinner {
+  			width: 40px;
+  			left: -15px;
+  		}
+  	}
+}
+
+.button-group {
+	overflow: hidden;
+	margin-bottom: 10px;
+	.btn {
+		border-radius:0;
+		margin:0;
+		position: relative;
+		border-right: 1px solid $darkGrey;
+		border-left: 1px solid rgba(255,255,255,0.05);
+	}
+	.btn:first-of-type {
+		border-radius:$borderRadius 0 0 $borderRadius;
+	}
+	.btn:last-of-type {
+		border-radius:0 $borderRadius $borderRadius 0;
+	}
+	.btn.small:first-of-type {
+		border-radius:$borderRadius 0 0 $borderRadius;
+	}
+	.btn.small:last-of-type {
+		border-radius:0 ($borderRadius - 1) ($borderRadius - 1) 0;
+	}
+	&.split-button .btn:nth-last-child(2) {
+		padding-right: 30px;
+		
+		&.medium {
+			padding-right: 25px;
+		}
+		&.small {
+			padding-right: 20px;
+		}
+	}
+}
+
+
+/*  
+  &.medium {
+    font-size:14px;
+    padding: 4px 10px;
+  }
+  
+  &.btn-success {
+    &:hover {
+      background-color:#36c37a;
+    }
+  }
+  
+  &.btn-primary {
+    &:hover {
+      background-color:#0e8cb5;
+    }
+  }
+}
+.btn-group > .btn.dropdown-toggle {
+  background: rgb(37, 113, 138);
+  &:hover {
+    background-color:#0e8cb5;
+  }
+*/

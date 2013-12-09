@@ -1,0 +1,167 @@
+@import "colors";
+@import "buttons";
+@import "icons";
+@mixin border-box {
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+
+
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: arial, sans-serif; 
+}
+
+header {
+	background-color: $darkRed;
+	text-align: center;
+	padding: 80px 0;
+	width: 100%;
+	color: #FFF;
+	
+	h1 {
+		margin: 0;
+	}
+}
+
+.section-wrapper {
+	padding: 0 10px;
+	clear: both;
+	
+	section {
+		max-width: 960px;
+		margin: 30px auto 0;
+	}
+	
+	hr {
+		background: transparent;
+		height: 0;
+		width: 100%;
+		border: none;
+		clear: both;
+	}
+}
+#nav.fixed {
+	position: fixed;
+	top: 0;
+}
+#nav {
+	box-shadow:0 -4px 0 0 rgba(0,0,0,0.1);
+	background: $darkGrey; 
+	color: #fff;
+	//position: fixed;
+	width: 100%;
+	z-index: 1;
+	@include border-box;
+	#download-dropdown {
+		float: right;
+		margin-top: 0px;
+		//width: 200px;
+	}
+	
+	a {
+		color: white;
+		text-decoration: none;
+		display: inline-block;
+		margin: 0 10px;
+		padding: 10px;
+		-webkit-transition: all 0.3s ease;                  
+		-moz-transition: all 0.3s ease;                 
+		-o-transition: all 0.3s ease;   
+		-ms-transition: all 0.3s ease;          
+		transition: all 0.3s ease;
+		&:first-of-type {
+			margin-left: 0;
+		}
+		&:last-of-type {
+			margin-right: 0;
+		}
+		&:hover {
+			background-color: $grey;
+		}
+		&:active, &:focus, .selected {
+			background: $lightGrey;
+		}
+	}
+}
+
+nav {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+#color {
+	.color-group div:first-of-type {
+		border-left-width: 0;
+	}
+	.color-group div:last-of-type {
+		border-right-width: 0;
+	}
+	
+	.color-group div {
+		width: 20%;
+		height: 100px;
+		float: left;
+		background: white; 
+		@include border-box;
+		border: 5px solid white;
+		border-top-width: 1px;
+		border-bottom-width: 1px;
+		
+	}
+	
+	.color-group.small div {
+		height: 40px;
+	}
+	.color-group.labels {
+		
+		
+		div {
+			height: 30px;
+			background-color: white;
+			
+			&.red {color: $red;}
+			&.green {color: $green;}
+			&.blue {color: $blue;}
+			&.orange {color: $orange;}
+			&.grey {color: $grey;}
+		}
+	}
+	.color-group.dark {
+		.red {background-color:$darkRed}
+		.green {background-color:$darkGreen}
+		.blue {background-color:$darkBlue}
+		.orange {background-color:$darkOrange}
+		.grey {background-color:$darkGrey}
+	}
+	.color-group {
+		.red {background-color:$red}
+		.green {background-color:$green}
+		.blue {background-color:$blue}
+		.orange {background-color:$orange}
+		.grey {background-color:$grey}
+	}
+	.color-group.light {
+		.red {background-color:$lightRed}
+		.green {background-color:$lightGreen}
+		.blue {background-color:$lightBlue}
+		.orange {background-color:$lightOrange}
+		.grey {background-color:$lightGrey}
+	}
+	.color-group.lighter {
+		.red {background-color:$lighterRed}
+		.green {background-color:$lighterGreen}
+		.blue {background-color:$lighterBlue}
+		.orange {background-color:$lighterOrange}
+		.grey {background-color:$lighterGrey}
+	}
+	.color-group.lightest {
+		.red {background-color:$lightestRed}
+		.green {background-color:$lightestGreen}
+		.blue {background-color:$lightestBlue}
+		.orange {background-color:$lightestOrange}
+		.grey {background-color:$lightestGrey}
+	}
+}

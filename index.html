@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<link rel="stylesheet" href="./css/style.css" type="text/css" />
+	<title>Styleguide v1</title>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+		  var navpos = $('#nav').offset();
+		  console.log(navpos.top);
+		    $(window).bind('scroll', function() {
+		      if ($(window).scrollTop() > navpos.top && $('#navPadding').length == 0) {
+		        $('#nav').addClass('fixed').after($('<div id="navPadding" />').height($('#nav').height()));
+		       }
+		       else if($(window).scrollTop() <= navpos.top) {
+		         $('#nav').removeClass('fixed');
+		         $('#navPadding').remove();
+		       }
+		    });
+		    
+		    $('.loader').click(function() {
+		    	$(this).toggleClass('loading').blur();
+		    });
+		    $('#disable-large').click(function() {
+		    	if($(this).is(':checked')) {
+		    		$('section>.btn.large').attr('disabled', 'disabled');
+		    	} else {
+		    		$('section>.btn.large').removeAttr('disabled');
+		    	}
+		    });
+		});
+	</script>
+	
+</head>
+
+<body>
+	<header>
+		<h1>Red Gate Styling</h1>
+		<aside>for web apps <i>(FF, Chrome, Safari, IE 9+)</i></aside>
+	</header>
+	<div class="section-wrapper" id="nav">
+		<nav>
+			<a href="#color">Color Palette</a>
+			<a href="#buttons">Buttons</a>
+			<span id="download-dropdown">
+				Download:
+				<select>
+					<optgroup title="edge (0.1 beta)"></optgroup>
+					<option>edge (0.1 beta)</option>
+				</select>
+				<a href="#" id="ask-a-designer-link">
+					Ask a designer
+				</a>
+			</span>
+		</nav>
+	</div>
+	<div class="section-wrapper" id="color">
+		<section>
+			<h2>Color Palette</h2>
+			<div class="color-group labels">
+				<div class="red">Red</div>
+				<div class="green">Green</div>
+				<div class="blue">Blue</div>
+				<div class="orange">Orange</div>
+				<div class="grey">Grey</div>
+			</div>
+			<div class="color-group small dark">
+				<div class="red"></div>
+				<div class="green"></div>
+				<div class="blue"></div>
+				<div class="orange"></div>
+				<div class="grey"></div>
+			</div>
+			<div class="color-group">
+				<div class="red"></div>
+				<div class="green"></div>
+				<div class="blue"></div>
+				<div class="orange"></div>
+				<div class="grey"></div>
+			</div>
+			<div class="color-group small light">
+				<div class="red"></div>
+				<div class="green"></div>
+				<div class="blue"></div>
+				<div class="orange"></div>
+				<div class="grey"></div>
+			</div>
+			<div class="color-group small lighter">
+				<div class="red"></div>
+				<div class="green"></div>
+				<div class="blue"></div>
+				<div class="orange"></div>
+				<div class="grey"></div>
+			</div>
+			<div class="color-group small lightest">
+				<div class="red"></div>
+				<div class="green"></div>
+				<div class="blue"></div>
+				<div class="orange"></div>
+				<div class="grey"></div>
+			</div>
+			<hr />
+		</section>
+	</div>
+	<div class="section-wrapper" id="buttons">
+		<section>
+			<h2>Buttons</h2>
+			<h3>Large</h3>
+			<button class="large btn">Standard button</button>
+			<button class="large btn"><span class="icon-cog"></span>With icon</button>
+			<button class="large btn primary">primary action</button>
+			<!--button class="large btn alt">alternative action</button-->
+			<button class="large btn destruct">destructive action</button>
+			<label><input type="checkbox" name="disable" id="disable-large" value="0" />Disable large buttons</label>
+			<h3>medium</h3>
+			<button class="medium btn">Standard button</button>
+			<button class="medium btn"><span class="icon-cog"></span>With icon</button>
+			<button class="medium btn primary">primary action</button>
+			<!--button class="medium btn alt">alternative action</button-->
+			<button class="medium btn destruct">destructive action</button>
+			<h3>small/inline</h3>
+			<button class="small btn">Standard button</button>
+			<button class="small btn"><span class="icon-cog"></span>With icon</button>
+			<button class="small btn primary">primary action</button>
+			<!--button class="small btn alt">alternative action</button-->
+			<button class="small btn destruct">destructive action</button>
+			<h3>Special buttons</h3>
+			<button class="large btn loader"><span class="spinner"></span>Loader</button>
+			
+			<div class="button-group split-button">
+				<button class="large btn main">split button</button><button class="large btn dropdown"><span aria-hidden="true" class="icon-arrow-down"></span></button>
+			</div>
+
+			<div class="button-group split-button">
+				<button class="medium btn main">split button</button><button class="medium btn dropdown"><span aria-hidden="true" class="icon-arrow-down"></span></button>
+			</div>
+
+			<div class="button-group split-button">
+				<button class="small btn main">split button</button><button class="small btn dropdown"><span aria-hidden="true" class="icon-arrow-down"></span></button>
+			</div>
+			
+			<div class="button-group split-button">
+				<button class="large btn main">split button</button><button class="large btn">test</button><button class="large btn dropdown"><span aria-hidden="true" class="icon-arrow-down"></span></button>
+			</div>
+
+			<div class="button-group split-button">
+				<button class="medium btn main">split button</button><button class="medium btn">test</button><button class="medium btn dropdown"><span aria-hidden="true" class="icon-arrow-down"></span></button>			</div>
+
+			<div class="button-group split-button">
+				<button class="small btn main">split button</button><button class="small btn">test</button><button class="small btn dropdown"><span aria-hidden="true" class="icon-arrow-down"></span>			</div>
+				
+				
+				<div class="button-group">
+					<button class="large btn main">split button</button><button class="large btn">test</button><button class="large btn">test 2</button>
+				</div>
+			
+		</section>
+	</div>
+	<div class="section-wrapper" id="typography">
+		<section>
+			<h2>Typography</h2>
+		</section>
+	</div>
+	<div class="section-wrapper" id="layout">
+		<section>
+			<h2>Layout</h2>
+		</section>
+	</div>
+</body>
+
+</html>
