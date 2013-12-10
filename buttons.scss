@@ -181,6 +181,7 @@ $borderRadius: 4px;
 }
 
 .button-group {
+	display: inline-table;
 	overflow: hidden;
 	margin-bottom: 10px;
 	.btn {

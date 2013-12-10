@@ -134,6 +134,7 @@
     left: -15px; }
 
 .button-group {
+  display: inline-table;
   overflow: hidden;
   margin-bottom: 10px; }
   .button-group .btn {
@@ -211,6 +212,9 @@ html, body {
   margin: 0;
   font-family: arial, sans-serif; }
 
+.get-code {
+  content: ""; }
+
 header {
   background-color: #c4122f;
   text-align: center;
@@ -219,6 +223,22 @@ header {
   color: #FFF; }
   header h1 {
     margin: 0; }
+
+.dp-highlighter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 20px;
+  background: #cccccc;
+  z-index: 2;
+  margin: 0;
+  font-family: courier;
+  font-size: 11px; }
+  .dp-highlighter .close-button {
+    float: right;
+    margin-right: 10px;
+    line-height: 1.5; }
 
 .section-wrapper {
   padding: 0 10px;
